@@ -6,7 +6,7 @@ RSpec.describe CommentsController, type: :controller do
       gram = FactoryBot.create(:gram)
 
       user = FactoryBot.create(:user)
-      sign_in user
+      sign_in user 
 
       post :create, params: { gram_id: gram.id, comment: { message: 'awesome gram' } }
 
@@ -19,6 +19,7 @@ RSpec.describe CommentsController, type: :controller do
       gram = FactoryBot.create(:gram)
       post :create, params: { gram_id: gram.id, comment: { message: 'awesome gram' } }
       expect(response).to redirect_to new_user_session_path
+
     end
 
     it "should return http status code of not found if the gram isn't found" do
@@ -26,6 +27,9 @@ RSpec.describe CommentsController, type: :controller do
       sign_in user
       post :create, params: { gram_id: 'YOLOSWAG', comment: { message: 'awesome gram' } }
       expect(response).to have_http_status :not_found
+
     end
+
   end
+
 end
