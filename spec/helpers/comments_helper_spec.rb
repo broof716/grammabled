@@ -1,3 +1,4 @@
+    
 require 'rails_helper'
 
 # Specs in this file have access to a helper object that includes
@@ -11,6 +12,5 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe CommentsHelper, type: :helper do
-
-
+  
 end
